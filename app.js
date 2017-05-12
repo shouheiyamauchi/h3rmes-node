@@ -13,7 +13,7 @@ var app = express();
 // FB messenger webhook
 app.get('/webhook', function(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
-      req.query['hub.verify_token'] === 'my_verify_token') {
+      req.query['hub.verify_token'] === process.env.WEBHOOK_TOKEN) {
     console.log("Validating webhook");
     res.status(200).send(req.query['hub.challenge']);
   } else {
