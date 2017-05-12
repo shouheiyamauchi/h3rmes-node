@@ -84,7 +84,7 @@ function callSendAPI(messageData) {
 
 app.get('/webhook', function(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
-      req.query['hub.verify_token'] === process.env.WEBHOOK_TOKEN) {
+      req.query['hub.verify_token'] === 'EAASZBfnpCmZCEBANZCu6PzLYEs3pTGyOUulyn8TfDMNlF1DujJtg2paToAz6IJkZCZAKCQbk1r7xNPuFJQ2Pf9ZC4CrXGi0YH8NZAaFX14abPe5LGh8jahewf0I2OFGNZBFMZCNRHQSEUFXmwWs8XaS11HryAbEVnzJ2MHrnXL4XZA3QZDZD') {
     console.log("Validating webhook");
     res.status(200).send(req.query['hub.challenge']);
   } else {
